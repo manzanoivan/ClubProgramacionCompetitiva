@@ -1,22 +1,26 @@
 import java.io.*;
 import java.util.*;
 import java.math.*;
-public class FastInput{
+public class Main{
 	public static void main(String[] args) {
 		MyScanner sc = new MyScanner();
 		out = new PrintWriter(new BufferedOutputStream(System.out));
+		int N, F, casos = 1;
+		while( true ){
+			N = sc.nextInt();
+			F = sc.nextInt();
 
-		/*
-		int n      = sc.nextInt();        // read input as integer
-		long k     = sc.nextLong();       // read input as long
-		double d   = sc.nextDouble();     // read input as double
-		String str = sc.next();           // read input as String
-		String s   = sc.nextLine();       // read whole line as String
-		BigInteger b = sc.nextBigInteger(); // read input as BigInteger
-		out.println(result);                    // print via PrintWriter
-		*/
+			if( N == 0 ) break;
+
+			BigInteger acum = BigInteger.ZERO;
+			for( int i = 0; i < N; i++ ){
+				acum = acum.add(sc.nextBigInteger());
+			}
+			out.println( "Bill #" + casos++ + " costs "+ acum +": each friend should pay "+ acum.divide( BigInteger.valueOf( F ) ) +"\n" );
+		}
 		out.close();
 	}
+
 	public static PrintWriter out;
 	public static class MyScanner{
 		BufferedReader br;
