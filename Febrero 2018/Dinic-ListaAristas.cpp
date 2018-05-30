@@ -80,8 +80,6 @@ struct GrafoFlujo{
         }
         return flujo_maximo;
     }
-    
-    
 };
 
 int main(){
